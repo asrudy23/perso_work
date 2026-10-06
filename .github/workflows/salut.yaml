@@ -1,0 +1,14 @@
+name : Bonjour 
+on : push
+
+jobs:
+    Salutations : #Nom du job
+      name : Salutations
+      runs-on : ubuntu-latest 
+      steps:
+        - name : Hello # Saluer
+          env :
+            personneASaluer : 'Mon voisin Totoro'
+          run : echo " Bonjour ${personneASaluer}"
+        - name : L'heure de la salutation
+          run : echo "Il était $(date)."
