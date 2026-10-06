@@ -18,7 +18,7 @@ jobs:
         - name: Build package with maven
           env:
             SONAR_TOKEN : ${{secrets.SONAR_TOKEN}}  
-          run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=$(echo ${{ github.repository }} | sed 's-/-_-')
+          run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=$(echo ${{ github.repository }} | sed 's-/-_-') -Dsonar.organization=$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')
 
           
           
